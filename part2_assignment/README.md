@@ -126,25 +126,14 @@ $$
 
 Variables:
 
-* $(x_r \ge 0)$: crafts/min for recipe (r).
+* $$(x_r \ge 0)$$: crafts/min for recipe (r).
 * $(u_i \ge 0)$: raw draw (items/min) for raw items (i) that have caps.
 
 Steady-state equalities:
 
-* Target item (t): $(Sx)_t = \text{target\_rate}$.
+* Target item (t): $(Sx)t = \text{targetrate}$.
 * Intermediates (non-raw, non-target): $((Sx)_i = 0)$.
 * Raws: $((Sx)_i + u_i = 0)$  ⇒ raws are **net-consumed only**.
-
-Caps checked after solving:
-
-* $(0 \le u_i \le \text{raw\_cap}_i)$.
-* Integer machine counts must not exceed `max_machines`.
-
-**Effective recipe speed** (per recipe (r) on machine (m)):
-
-$$
-\text{eff\_crafts\_per\_min}(r) = \underbrace{\text{machines}[m].\text{crafts\_per\_min}\cdot(1+\text{speed}*m)}*{\text{speed-adjusted machine rate}} \cdot \frac{60}{\text{time\_s}(r)}.
-$$
 
 **Cycles are handled automatically:** the equalities apply to **all** items at once; no DAG or topological order is required. Cyclic items are in the “intermediate” set, so they must balance to zero net accumulation.
 
@@ -401,3 +390,4 @@ Common reasons for infeasibility:
 * **Certificate:** In infeasible runs, `sum(flow_needed)` over `tight_edges` equals `demand_balance` (equal-split rule).
 
 ---
+
