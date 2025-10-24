@@ -1,0 +1,7 @@
+Name: Gupil	
+Email: gupil22@iitk.ac.in
+Language: Python 3.13.5
+OS: Windows 11
+RAM: 16 GB
+CPU: AMD Ryzen 9 5900HX
+Libraries used can be found in requirements.txt and can be installed as detailed in RUN.md
